@@ -35,8 +35,11 @@
 
   </head>
 	<body>
-
-		<h2>Project proposal</h2>
+	<div class="content" id="top">
+		<h1>Project proposal</h1>
+		Theodore Kluge
+		<hr>
+		<h4 id="objective">Objective</h4>
 		<p>
 			To make a webpage that details what arrays are and how they work.
 		</p>
@@ -45,18 +48,54 @@
 		<li>show examples of uses of arrays</li>
 		<li>explain all examples</li>
 		<li>have small inline demos alongside the examples that allow the examples to run</li>
-		<li>demos will use javascript but will do the same thing</li>
+		<li>demos will use javascript but will do the same thing as their java equivalents</li>
 		</ul>
+		<h4 id="content">Content</h4>
 		<p>
-			The page will be separated into "slides" - will be able to scroll through all pages, but will also be able to focus onto a single page
+			The page will be separated into "slides" - will be able to scroll through all pages, but will also be able to focus onto a single page. The user will be able to select a subtopic from a navbar on the side or top.
 		</p>
+		<p>
+			Each page will contain a single subtopic of arrays and how it can be used, along with an example of the topic.
+		</p>
+		<h4 id="topics">Subtopics</h4>
+		<ul>
+		<li>1-dimensional arrays</li>
+			<ul class="ul-sub">
+			<li>Creating</li>
+			<li>Accessing</li>
+			<li>Modifying</li>
+			<li>Sorting</li>
+			<li>Searching</li>
+			</ul>
+		<li>2-dimensional arrays</li>
+			<ul class="ul-sub">
+			<li>Creating</li>
+			<li>Accessing</li>
+			<li>Modifying</li>
+			<li>Searching</li>
+			</ul>
+		<li>Iterating through arrays</li>
+			<ul class="ul-sub">
+			<li>for</li>
+			<li>while</li>
+			</ul>
+		<li>Arraylists</li>
+			<ul class="ul-sub">
+			<li>Creating</li>
+			<li>Accessing</li>
+			<li>Modifying</li>
+			<li>Sorting</li>
+			<li>Searching</li>
+			</ul>
+		</ul>
 
+	</div>
     </body>
     <script type="text/javascript">
 
-		$(document).keypress(function(e){
+		$(document).keyup(function(e){
 			if(e.keyCode == 32) { ///space
-				in_out.exitAnim();
+				alert("SPAAAAAAAAAAACE");
 			}
 		});
 
