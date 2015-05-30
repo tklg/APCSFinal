@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>AP Computer Science - Chapter 6: Arrays</title>
+
+    <!-- <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'> -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- jQuery v2 -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	<!-- <script src="../../js/jquery.min.js"></script> -->
+
+	<link href="css/cs.css" rel="stylesheet">
+		
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+	<body>
+	<div class="content" id="top">
+		
+		<section class="col col-5 col-locked">
+			<div class="title">
+				<h1>Title</h1>
+			</div>
+			<ul class="nav">
+				<li><div class="menuitem"><a href="#page1">Nav 1</a></div></li>
+				<li><div class="menuitem"><a href="#page2">Nav 2</a></div></li>
+				<li><div class="menuitem"><a href="#page3">Nav 3</a></div></li>
+			</ul>
+		</section>
+
+		<section class="col col-5-4">
+			<section class="pages">
+				<div class="page" id="page1">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Page 1 - Something</h2>
+						</div>
+					</div>
+				</div>
+				<div class="page" id="page2">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Page 2 - Something Else</h2>
+						</div>
+					</div>
+				</div>
+				<div class="page" id="page3">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Page 3 - Something Else Again</h2>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+
+	</div>
+    </body>
+    <script src="js/cs.js"></script>
+	<script src="js/jquery.nicescroll.js"></script>
+    <script type="text/javascript">
+
+		$(document).keyup(function(e){
+			if(e.keyCode == 32) { ///space
+				
+			}
+		});
+
+	    $(document).ready(function() {
+	    	$("html").niceScroll({ 
+		        scrollspeed: 80,
+		        mousescrollstep: 60,
+		        cursorborder: '0px',
+		        cursorcolor: "rgba(255,255,255,.6)"
+		    });
+	    });
+
+    </script>
+</html>
