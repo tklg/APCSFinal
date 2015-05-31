@@ -15,6 +15,6 @@ $('a[href*=#]:not([href=#])').click(function(e) {
         }
     }
 });
-$('.nav div').click(function(e) {
+/*$('.nav div').click(function(e) {
     $(e.target).children('a').click();
-});
+});*/

@@ -43,6 +43,13 @@ li:first-letter {
 ::selection {
 
 }
+a {
+    color: #5a9bda;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
 .ul-sub {
     /*margin-left: 10px;*/
 }

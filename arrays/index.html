@@ -8,12 +8,6 @@
 
     <!-- <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'> -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-<!-- jQuery v2 -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-	<!-- <script src="../../js/jquery.min.js"></script> -->
-
 	<link href="css/cs.css" rel="stylesheet">
 		
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,16 +23,24 @@
 		
 		<section class="col col-5 col-locked">
 			<div class="title">
-				<h1>Title</h1>
+				<div class="titleborder">
+					<h1><i class="fa fa-cube"></i> Title</h1>
+				</div>
 			</div>
-			<ul class="nav">
-				<li><div class="menuitem"><a href="#page1">Nav 1</a></div></li>
-				<li><div class="menuitem"><a href="#page2">Nav 2</a></div></li>
-				<li><div class="menuitem"><a href="#page3">Nav 3</a></div></li>
-			</ul>
+			<br>
+			<div class="col-nav" id="col-nav">
+				<ul class="nav nav-pills nav-stacked" id="nav">
+					<li><a href="#page1"><div class="menuitem">Nav 1</div></a></li>
+					<li><a href="#page2"><div class="menuitem">Nav 2</div></a></li>
+					<li><a href="#page3"><div class="menuitem">Nav 3</div></a></li>
+					<li><a href="#page4"><div class="menuitem">Nav 4</div></a></li>
+					<li><a href="#page5"><div class="menuitem">Nav 5</div></a></li>
+				</ul>
+			</div>
 		</section>
+		<section class="col col-5" style="visibility:hidden"></section>
 
-		<section class="col col-5-4">
+		<section class="col col-5-4" id="col-content">
 			<section class="pages">
 				<div class="page" id="page1">
 					<div class="page-content">
@@ -61,14 +63,35 @@
 						</div>
 					</div>
 				</div>
+				<div class="page" id="page4">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Page 4 - Some Stuff</h2>
+						</div>
+					</div>
+				</div>
+				<div class="page" id="page5">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Page 5 - Some More Stuff</h2>
+						</div>
+					</div>
+				</div>
 			</section>
 		</section>
 
 	</div>
     </body>
-    <script src="js/cs.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 	<script src="js/jquery.nicescroll.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/cs.js"></script>
     <script type="text/javascript">
+
+	    $('body').scrollspy({
+	    	target: '#col-nav'
+	    });
 
 		$(document).keyup(function(e){
 			if(e.keyCode == 32) { ///space
@@ -81,7 +104,7 @@
 		        scrollspeed: 80,
 		        mousescrollstep: 60,
 		        cursorborder: '0px',
-		        cursorcolor: "rgba(255,255,255,.6)"
+		        cursorcolor: "rgba(255,255,255,.4)"
 		    });
 	    });
 

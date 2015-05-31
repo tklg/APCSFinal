@@ -9,6 +9,9 @@ body {
     padding: 0;
     font-family: sans-serif;
 }
+.fa-cube {
+    color: #5a9bda;
+}
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -44,12 +47,19 @@ body {
 .nav li {
     /*padding: 5px 20px;*/
     width: 100%;
-    -webkit-transition: all .2s ease-in-out;
-          transition: all .2s ease-in-out;
+    -webkit-transition: all .15s ease-in-out;
+          transition: all .15s ease-in-out;
     cursor: pointer;
+}
+.nav li.active {
+    background: rgba(255,255,255,.05);
 }
 .nav li:hover {
     background: rgba(255,255,255,.1);
+}
+.nav li:active {
+    /*background: rgba(255,255,255,.2);*/
+    background: #26508b;
 }
 .menuitem {
     padding: 5px 20px;
@@ -60,52 +70,59 @@ body {
     float: right;
     content: "\f101";
     color: transparent;
-    -webkit-transition: all .2s ease-in-out;
-          transition: all .2s ease-in-out;
+    -webkit-transition: all .15s ease-in-out;
+          transition: all .15s ease-in-out;
 }
 .menuitem:hover:after {
     color: #aaa;
 }
 a {
-    /*position: absolute;
-    width: 100%;*/
     color: #aaa;
     text-decoration: none;
 }
-/*a:hover {
-    color: #aaa;
-    border-bottom: 1px solid gray;
-}*/
 .col {
     position: relative;
     height: 100%;
     float: left;
 }
-.col-4 {
-    width: 25%;
+@media (min-width: 0px) and (max-width: 768px) {
+    .col-5 {
+        width: 30%;
+        border-right: 1px solid black; 
+    }
+    .col-5-4 {
+        width: calc(70% - 1px);
+    }
 }
-.col-4-3 {
-    width: 75%;
+@media (min-width: 768px) and (max-width: 992px) {
+    .col-5 {
+        width: 25%;
+        border-right: 1px solid black; 
+    }
+    .col-5-4 {
+        width: calc(75% - 1px);
+    }    
 }
-.col-5 {
-    width: 20%;
-    border-right: 1px solid black; 
-}
-.col-5-4 {
-    position: absolute;
-    left: 20%;
-    width: calc(80% - 1px);
+@media (min-width: 992px) {
+    .col-5 {
+        width: 20%;
+        border-right: 1px solid black; 
+    }
+    .col-5-4 {
+        width: calc(80% - 1px);
+    }    
 }
 .col-locked {
     position: fixed;
+    padding-top: 0;
 }
 .title {
-    height: 50px;
-    width: 100%;
-    padding-left: 20px;
+    padding: 0 20px;
 }
 .title h1 {
-
+}
+.titleborder {
+    border-bottom: 1px solid black;
 }
 .pages {
     height: 100%;
@@ -114,7 +131,6 @@ a {
     position: relative;
     min-height: 100%;
     width: 100%;
-    /*border-bottom: solid 1px black;*/
 }
 .page-content {
     min-height: 100%;
@@ -125,13 +141,4 @@ a {
     border-top: 1px solid black;
 }
 .page-title h2 {
-}
-@media (min-width: 544px) {
-    
-}
-@media (min-width: 768px) {
-    
-}
-@media (min-width: 992px) {
-    
 }
