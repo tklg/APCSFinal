@@ -8,6 +8,8 @@
 
     <!-- <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'> -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/codemirror.css">
+    <link rel="stylesheet" href="css/cm-themes/twilight.css">
 	<link href="css/cs.css" rel="stylesheet">
 		
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -24,20 +26,20 @@
 		<section class="col col-5 col-locked">
 			<div class="title">
 				<div class="titleborder">
-					<h1><i class="fa fa-cube"></i> Title</h1>
+					<h1><i class="fa fa-cube"></i> Chapter 6 - Arrays</h1>
 				</div>
 			</div>
 			<br>
 			<div class="col-nav" id="col-nav">
-				<ul class="nav nav-pills nav-stacked" id="nav">
+				<ul class="nav" id="nav">
 					<li><a href="#overview"><div class="menuitem">Overview</div></a></li>
 					<li><a href="#generaluse"><div class="menuitem">Arrays</div></a></li>
-					<li><a href="#1d"><div class="menuitem">1D Arrays</div></a></li>
-						<li><a href="#1dcreating"><div class="menuitem menuitem-sub">Creating</div></a></li>
-						<li><a href="#1daccessing"><div class="menuitem menuitem-sub">Accessing</div></a></li>
-						<li><a href="#1dmodifying"><div class="menuitem menuitem-sub">Modifying</div></a></li>
-						<li><a href="#1dsorting"><div class="menuitem menuitem-sub">Sorting</div></a></li>
-						<li><a href="#1dsearching"><div class="menuitem menuitem-sub">Searching</div></a></li>
+					<li><a href="#1d"><div class="menuitem menuitem-1">1D Arrays</div></a></li>
+						<li><a href="#1dcreating"><div class="menuitem menuitem-sub menuitem-sub-1">Creating</div></a></li>
+						<li><a href="#1daccessing"><div class="menuitem menuitem-sub menuitem-sub-1">Accessing</div></a></li>
+						<li><a href="#1dmodifying"><div class="menuitem menuitem-sub menuitem-sub-1">Modifying</div></a></li>
+						<li><a href="#1dsorting"><div class="menuitem menuitem-sub menuitem-sub-1">Sorting</div></a></li>
+						<li><a href="#1dsearching"><div class="menuitem menuitem-sub menuitem-sub-1">Searching</div></a></li>
 					<li><a href="#page4"><div class="menuitem">Nav 4</div></a></li>
 					<li><a href="#page5"><div class="menuitem">Nav 5</div></a></li>
 				</ul>
@@ -56,8 +58,7 @@
 						<li>show examples of arrays</li>
 						<li>show examples of uses of arrays</li>
 						<li>explain all examples</li>
-						<li>have small inline demos alongside the examples that allow the examples to run</li>
-						<li>demos will use javascript but will do the same thing as their java equivalents</li>
+						<li>have small inline demos alongside the examples</li>
 						</ul>
 						<ul>
 						<li>1-dimensional arrays</li>
@@ -91,6 +92,7 @@
 						</ul>
 					</div>
 				</div>
+
 				<div class="page" id="generaluse">
 					<div class="page-content">
 						<div class="page-title">
@@ -110,6 +112,7 @@
 								a matrix, you can use a 2-dimensional array instead of a 1-dimensional array.<br>
 								So, if a 1D array is a list of items, a 2D array is a list of lists of items.
 							</p>
+							<br><br><br>
 							<p>
 							...and a 3D array would be a list of lists of lists of items,<br>
 							and a 4D array would be a list of lists of lists of lists of items...
@@ -133,7 +136,7 @@
 						</div>
 						<div class="page-text">
 							<p>
-								A 1 dimensional array can be used to store a list of items or objects. The example on the previous page was a list of grades.
+								A 1 dimensional array can be used to store a list of items or objects.
 							</p>
 							<p>
 								This section will go over how to create, access, modify, and sort 1-dimensional arrays.
@@ -157,6 +160,10 @@
 								<code language="java">int[] myPrefilledArray = {1, 2, 3, 4, 5};</code><br>
 								creates an array that already contains some integers.
 							</p>
+                            <hr>
+                            <p>
+                                Arrays can be created to contain any data type - int, double, String, or Object., but for these examples ints are simplest.
+                            </p>
 						</div>
 						<div class="page-demo">
 <textarea id="editor">
@@ -165,7 +172,18 @@ int[] myArray = new int[10];
 
 //this will create an array that already contains some ints.
 int[] myPrefArray = {1, 2, 3, 4, 5};
-</textarea>
+
+
+
+
+
+
+
+
+int[] intArray;
+double[] doubleArray;
+String[] stringArray;
+Apple[] objectArray;</textarea>
 						</div>
 					</div>
 				</div>
@@ -184,10 +202,10 @@ int[] myPrefArray = {1, 2, 3, 4, 5};
 								Each item is at its number, minus 1.<br>
 								So, in the example to the right, 1 has an index of 0, and 5 has an index of 4.
 								<table>
-								<tr class="table-clear">
+								<tr class="table-light">
 								<td>Index</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
 								</tr>
-								<tr class="table-light">
+								<tr class="table-clear">
 								<td>Value</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
 								</tr>
 								</table>
@@ -197,25 +215,210 @@ int[] myPrefArray = {1, 2, 3, 4, 5};
 								<code>int myNum = myPrefArray[index];</code><br>
 								where <i>index</i> is the index in the array.<br>
 							</p>
+							<hr>
 							<p>
-								If you ask for the data at an index in the array that does not exist, you will get an <i>ArrayIndexOutOfBoundsException</i> exception. One way to prevent this is by making sure that you never ask for an index that does not exist.
-							</p>
+								If you ask for the data at an index in the array that does not exist, you will get an <i>ArrayIndexOutOfBoundsException</i>. One way to prevent this is by making sure that you never ask for an index that does not exist.
+							</p><!--<br><br><br><br>
+							<hr>-->
 						</div>
 						<div class="page-demo">
 <textarea id="editor">
-//our prefilled array of ints
+// our prefilled array of ints
 int[] myPrefArray = {1, 2, 3, 4, 5};
-//initialize a blank int
+// initialize a blank int
 int myNum;
 
-//assign it the value of the first element in the array
+// assign it the value of the first element in the array
 myNum = myPrefArray[0];
 
-//print the result
-System.out.println("My number: " + myNum);</textarea>
+// print the result
+System.out.println("My number: " + myNum);
+// this will print out 'My number: 1'
+
+
+
+
+
+
+
+
+// find the length of the array
+int myArrayLength = myPrefArray.length;
+// set an index to retrieve
+int index = 0;
+
+// if the index is greater than 0 (the minimum index)
+// and less than the length of the array
+if (index >= 0 && index < myArrayLength) {
+	// do something
+	System.out.println(myArray[index]);
+} else {
+	// index is out of bounds
+	System.err.println("Invalid index given");
+}</textarea>
 						</div>
 					</div>
 					</div>
+
+					<div class="page" id="1dmodifying">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Modifying a 1-dimensional array</h2>
+						</div>
+						<div class="page-text">
+							<p>
+				                The contents of arrays can be changed in a way similar to how they are accessed.
+                            </p>
+							<p>
+                                Just as<br>
+								<code language="java">myInt = myArray[index]</code><br>
+								retrieves the value stored in the specified index,<br><br>
+								<code language="java">myArray[index] = myInt</code><br>
+								will set the value stored at that index to whatever <i>myInt</i> was.
+							</p>
+                            <br><br>
+                            <hr>
+                            <p>
+                                Now that we can change the contents of an array, we can also set the contents of an empty array.<br>
+                                <code>int[] myEmptyArray = new int[10]</code> creates an empty int array with 10 empty spaces.<br><br>
+                                Each of those spaces can have its value set to an int.
+                                This is useful when you do not know what the contents of the array will be when writing the program, and need to set them programmatically later.
+                            </p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+int myInt = 7;
+// create an array
+int[] myArray = {1, 2, 3, 4, 5};
+
+// the array contains 1, 2, 3, 4, 5
+
+myArray[0] = myInt;
+// the array contains 7, 2, 3, 4, 5
+    
+myInt = myArray[1];
+myArray[4] = myInt;
+// the array contains 7, 2, 3, 4, 2
+    
+
+// create an empty int array with 10 slots
+int[] myArray = new int[10];
+
+// set their values anywhere in the program
+myArray[0] = 1;
+myArray[9] = 376;</textarea>
+						</div>
+					</div>
+				</div>
+                
+                <div class="page" id="1dsorting">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Sorting arrays</h2>
+						</div>
+						<div class="page-text">
+							<p>
+								There are 2 ways to sort arrays - selection sorting and insertion sorting.
+                            </p>
+                            <p>
+                                A selection sort algorithm assumes a sublist that covers the entire array.
+                                It passes through each of the indeces in the sublist, comparing each value to each other to find the smallest value.
+                                When it has found the smallest value, it exchanges it with the first value in the sublist.
+                                It then moves the sublist boundaries one index to the right, and repeats the cycle until it reaches the end of
+                                the list.
+                            </p>
+                            <p>
+                                <table>
+                                <tr class="table-light">
+                                <td>Original</td><td>64</td><td>25</td><td>12</td><td>22</td><td>11</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>1<sup>st</sup> pass</td><td>11</td><td>25</td><td>12</td><td>22</td><td>64</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>2<sup>nd</sup> pass</td><td>11</td><td>12</td><td>25</td><td>22</td><td>64</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>3<sup>rd</sup> pass</td><td>11</td><td>12</td><td>22</td><td>25</td><td>64</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>4<sup>th</sup> pass</td><td>11</td><td>12</td><td>22</td><td>25</td><td>64</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>5<sup>th</sup> pass</td><td>11</td><td>12</td><td>22</td><td>25</td><td>64</td>  
+                                </tr>
+                                </table>                                
+                            </p>
+                        <p>
+                            The last 2 lines do not change because the last 2 numbers in the list were already in order.
+                            However the algorith does not know that and continues until it has gone over each index.
+                        </p>
+                        <hr>
+                        <p>
+                            An insertion sort algorithm
+                        </p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+// a selection sort algorithm
+public static void selectionSort(int[] numbers) {
+	int min, temp;
+	for (int index = 0; index < numbers.length - 1; index++) {
+		min = index;
+		for (int scan = index + 1; scan < numbers.length; scan++)
+            if (numbers[scan] < numbers[min])
+                min = scan;
+        temp = numbers[min];
+		numbers[min] = numbers[index];
+		numbers[index] = temp;
+	}
+}
+
+int[] myArray = {64, 25, 12, 22, 11};
+selectionSort(myArray);
+// myArray contains 11, 12, 22, 25, 64
+
+
+
+
+
+
+
+
+
+// an insertion sort algorithm
+public static void insertionSort(int[] numbers) {
+	for (int index = 1; index < numbers.length; index++) {
+		int key = numbers[index];
+		int position = index;
+		while (position > 0 && numbers[position - 1] > key) {
+            numbers[position] = numbers[position - 1];
+            position--;
+		}
+		numbers[position] = key;
+	}
+}</textarea>
+						</div>
+					</div>
+				</div>
+                
+                <div class="page" id="1dsearching">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Page title</h2>
+						</div>
+						<div class="page-text">
+							<p>
+								
+                            </p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+</textarea>
+						</div>
+					</div>
+				</div>
+				<!-- paste next page here -->
 				</div>
 			</section>
 		</section>
@@ -249,8 +452,6 @@ System.out.println("My number: " + myNum);</textarea>
 	    });
 
     </script>
-    <link rel="stylesheet" href="css/codemirror.css">
-    <link rel="stylesheet" href="css/cm-themes/twilight.css">
     <script type="text/javascript" src="js/codemirror.js"></script>
     <script src="js/cm-keymap/sublime.js"></script>
     <script type="text/javascript" src="js/cm-addon/dialog/dialog.js"></script>
@@ -259,11 +460,11 @@ System.out.println("My number: " + myNum);</textarea>
     <script type="text/javascript" src="js/cm-addon/search/search.js"></script>
     <script type="text/javascript" src="js/cm-addon/edit/closebrackets.js"></script>
     <script type="text/javascript" src="js/cm-addon/comment/comment.js"></script>
-    <script type="text/javascript" src="js/cm-addon/fold/foldcode.js"></script>
+    <!--<script type="text/javascript" src="js/cm-addon/fold/foldcode.js"></script>
     <script type="text/javascript" src="js/cm-addon/fold/foldgutter.js"></script>
     <script src="js/cm-addon/fold/brace-fold.js"></script>
     <script src="js/cm-addon/fold/comment-fold.js"></script>
-    <link href="js/cm-addon/fold/foldgutter.css" rel="stylesheet" />
+    <link href="js/cm-addon/fold/foldgutter.css" rel="stylesheet" />-->
 
     <script src="js/cm-mode/javascript/javascript.js"></script>
     <script src="js/cm-mode/clike/clike.js"></script>
@@ -278,7 +479,7 @@ System.out.println("My number: " + myNum);</textarea>
 				lineWrapping: false,
 				theme: 'twilight',
 				indentWithTabs: true,
-				readOnly: false,
+				readOnly: 'nocursor',
 				keyMap: 'sublime',
 			    foldGutter: true,
 			    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],

@@ -170,11 +170,13 @@ a {
     position: absolute;
 }*/
 .CodeMirror {
-    height: auto;
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 code {
     background: rgba(255,255,255,.1);
-    padding: 1px;
+    padding: 2px;
 }
 textarea {
     font-family: monospace;
@@ -195,4 +197,8 @@ table .table-clear {
 }
 table .table-light {
     background: rgba(255,255,255,.1);
+}
+hr {
+    border: 1px solid transparent;
+    border-top: 1px solid #000;
 }
