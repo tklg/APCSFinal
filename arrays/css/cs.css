@@ -159,9 +159,18 @@ a {
 .page-demo {
     float: left;
     padding: 0;
-    width: calc(50% - 21px);
-    border-left: 1px solid black;
+    width: calc(50% - 40px);
     margin-left: 20px;
+    height: calc(100% - 70px);
+    left: 50%;
+    position: absolute;
+}
+/*#editor {
+    height: 100%;
+    position: absolute;
+}*/
+.CodeMirror {
+    height: auto;
 }
 code {
     background: rgba(255,255,255,.1);
@@ -172,4 +181,18 @@ textarea {
     background: rgba(0,0,0,.4);
     width: 100%;
     margin: 0;
+}
+table {
+    width: 100%;
+}
+table td {
+    width: auto;
+    text-align: center;
+    border: 1px solid black;
+}
+table .table-clear {
+    background: transparent;
+}
+table .table-light {
+    background: rgba(255,255,255,.1);
 }

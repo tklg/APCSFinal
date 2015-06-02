@@ -116,50 +116,105 @@
 							</p>
 						</div>
 						<div class="page-demo">
-<textarea id="editor-1">
-/*arrays can store lists of items - for example:
+<textarea id="editor">
+/*
+* arrays can store lists of items - for example:
 * 1, 2, 3, 4, 5 can be stored in an array,
 * as can "apple", "banana", "pear"
 */</textarea>
 						</div>
 					</div>
 				</div>
+
 				<div class="page" id="1d">
 					<div class="page-content">
 						<div class="page-title">
 							<h2>1D Arrays</h2>
 						</div>
 						<div class="page-text">
-							some content
+							<p>
+								A 1 dimensional array can be used to store a list of items or objects. The example on the previous page was a list of grades.
+							</p>
+							<p>
+								This section will go over how to create, access, modify, and sort 1-dimensional arrays.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="page" id="1dcreating">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Creating a 1-dimensional array</h2>
+						</div>
+						<div class="page-text">
+							<p>
+								An <i>array initializer</i> is used to create an array. It can either create an empty array with a certain number of empty spaces in it, or it can create an array that is already filled with items.
+							</p>
+							<p>
+								<code language="java">int[] myArray = new int[10];</code><br>
+								creates an empty array that can be filled with integers.<br><br>
+								<code language="java">int[] myPrefilledArray = {1, 2, 3, 4, 5};</code><br>
+								creates an array that already contains some integers.
+							</p>
 						</div>
 						<div class="page-demo">
-<textarea id="editor-2">
-//this is an array initializer
-int[] myArray = new int[20];
+<textarea id="editor">
+//this will create an empty array 10 spaces long that can store ints
+int[] myArray = new int[10];
 
-
+//this will create an array that already contains some ints.
+int[] myPrefArray = {1, 2, 3, 4, 5};
 </textarea>
 						</div>
 					</div>
 				</div>
-				<div class="page" id="page4">
+
+				<div class="page" id="1daccessing">
 					<div class="page-content">
 						<div class="page-title">
-							<h2>Page 4 - Some Stuff</h2>
-						</div>
-					</div>
-					<div class="page-text">
-							
-					</div>
-				</div>
-				<div class="page" id="page5">
-					<div class="page-content">
-						<div class="page-title">
-							<h2>Page 5 - Some More Stuff</h2>
+							<h2>Reading things from a 1-dimensional array</h2>
 						</div>
 						<div class="page-text">
-							
+							<p>
+								To be able to do anything with the data stored in the arrays, you must remember that arrays are divided into sections. To access a single item in the array, you must specify which of the items you want to get.
+							</p>
+							<p>
+								However, to get the first item in the array is actually at the array index (column) of 0.<br>
+								Each item is at its number, minus 1.<br>
+								So, in the example to the right, 1 has an index of 0, and 5 has an index of 4.
+								<table>
+								<tr class="table-clear">
+								<td>Index</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+								</tr>
+								<tr class="table-light">
+								<td>Value</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+								</tr>
+								</table>
+							</p>
+							<p>
+								To actually retrieve the int from the index in the array, you use<br>
+								<code>int myNum = myPrefArray[index];</code><br>
+								where <i>index</i> is the index in the array.<br>
+							</p>
+							<p>
+								If you ask for the data at an index in the array that does not exist, you will get an <i>ArrayIndexOutOfBoundsException</i> exception. One way to prevent this is by making sure that you never ask for an index that does not exist.
+							</p>
 						</div>
+						<div class="page-demo">
+<textarea id="editor">
+//our prefilled array of ints
+int[] myPrefArray = {1, 2, 3, 4, 5};
+//initialize a blank int
+int myNum;
+
+//assign it the value of the first element in the array
+myNum = myPrefArray[0];
+
+//print the result
+System.out.println("My number: " + myNum);</textarea>
+						</div>
+					</div>
 					</div>
 				</div>
 			</section>
@@ -213,27 +268,23 @@ int[] myArray = new int[20];
     <script src="js/cm-mode/javascript/javascript.js"></script>
     <script src="js/cm-mode/clike/clike.js"></script>
     <script type="text/javascript">
-		editor = CodeMirror.fromTextArea($('#editor-1')[0], {
-			lineNumbers: true,
-			lineWrapping: false,
-			theme: 'twilight',
-			indentWithTabs: true,
-			readOnly: false,
-			keyMap: 'sublime',
-		    foldGutter: true,
-		    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
-		});
-		editor.setOption("mode", "text/x-java");
-		editor2 = CodeMirror.fromTextArea($('#editor-2')[0], {
-			lineNumbers: true,
-			lineWrapping: false,
-			theme: 'twilight',
-			indentWithTabs: true,
-			readOnly: false,
-			keyMap: 'sublime',
-		    foldGutter: true,
-		    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
-		});
-		editor2.setOption("mode", "text/x-java");
+
+    	var editors = $('[id=editor]');
+    	var e = [];
+
+    	for (i = 0; i < editors.length; i++) {
+    		e[i] = CodeMirror.fromTextArea(editors[i], {
+				lineNumbers: true,
+				lineWrapping: false,
+				theme: 'twilight',
+				indentWithTabs: true,
+				readOnly: false,
+				keyMap: 'sublime',
+			    foldGutter: true,
+			    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+			    viewportMargin: Infinity
+			});
+			e[i].setOption("mode", "text/x-java");
+    	}
     </script>
 </html>
