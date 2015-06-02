@@ -30,9 +30,14 @@
 			<br>
 			<div class="col-nav" id="col-nav">
 				<ul class="nav nav-pills nav-stacked" id="nav">
-					<li><a href="#page1"><div class="menuitem">Nav 1</div></a></li>
-					<li><a href="#page2"><div class="menuitem">Nav 2</div></a></li>
-					<li><a href="#page3"><div class="menuitem">Nav 3</div></a></li>
+					<li><a href="#overview"><div class="menuitem">Overview</div></a></li>
+					<li><a href="#generaluse"><div class="menuitem">Arrays</div></a></li>
+					<li><a href="#1d"><div class="menuitem">1D Arrays</div></a></li>
+						<li><a href="#1dcreating"><div class="menuitem menuitem-sub">Creating</div></a></li>
+						<li><a href="#1daccessing"><div class="menuitem menuitem-sub">Accessing</div></a></li>
+						<li><a href="#1dmodifying"><div class="menuitem menuitem-sub">Modifying</div></a></li>
+						<li><a href="#1dsorting"><div class="menuitem menuitem-sub">Sorting</div></a></li>
+						<li><a href="#1dsearching"><div class="menuitem menuitem-sub">Searching</div></a></li>
 					<li><a href="#page4"><div class="menuitem">Nav 4</div></a></li>
 					<li><a href="#page5"><div class="menuitem">Nav 5</div></a></li>
 				</ul>
@@ -42,24 +47,98 @@
 
 		<section class="col col-5-4" id="col-content">
 			<section class="pages">
-				<div class="page" id="page1">
+				<div class="page" id="overview">
 					<div class="page-content">
 						<div class="page-title">
-							<h2>Page 1 - Something</h2>
+							<h2>Overview</h2>
+						</div>
+						<ul>
+						<li>show examples of arrays</li>
+						<li>show examples of uses of arrays</li>
+						<li>explain all examples</li>
+						<li>have small inline demos alongside the examples that allow the examples to run</li>
+						<li>demos will use javascript but will do the same thing as their java equivalents</li>
+						</ul>
+						<ul>
+						<li>1-dimensional arrays</li>
+							<ul class="ul-sub">
+							<li>Creating</li>
+							<li>Accessing</li>
+							<li>Modifying</li>
+							<li>Sorting</li>
+							<li>Searching</li>
+							</ul>
+						<li>2-dimensional arrays</li>
+							<ul class="ul-sub">
+							<li>Creating</li>
+							<li>Accessing</li>
+							<li>Modifying</li>
+							<li>Searching</li>
+							</ul>
+						<li>Iterating through arrays</li>
+							<ul class="ul-sub">
+							<li>for</li>
+							<li>while</li>
+							</ul>
+						<li>Arraylists</li>
+							<ul class="ul-sub">
+							<li>Creating</li>
+							<li>Accessing</li>
+							<li>Modifying</li>
+							<li>Sorting</li>
+							<li>Searching</li>
+							</ul>
+						</ul>
+					</div>
+				</div>
+				<div class="page" id="generaluse">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Arrays in General</h2>
+						</div>
+						<div class="page-text">
+							<p>
+								Arrays in java are useful for storing similar pieces of data.<br>
+								If you ever need to keep track of anything that can be arranged into a list, you should use an array.
+							</p>
+							<p>
+								For example, if you had a list of grades in a class, the grades could all be stored in an array.<br>
+								The array would be initialized, then filled with the students' grades.
+							</p>
+							<p>
+								Arrays can also be used to store more than a list. If you have data that can be arranged into
+								a matrix, you can use a 2-dimensional array instead of a 1-dimensional array.<br>
+								So, if a 1D array is a list of items, a 2D array is a list of lists of items.
+							</p>
+							<p>
+							...and a 3D array would be a list of lists of lists of items,<br>
+							and a 4D array would be a list of lists of lists of lists of items...
+							</p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor-1">
+/*arrays can store lists of items - for example:
+* 1, 2, 3, 4, 5 can be stored in an array,
+* as can "apple", "banana", "pear"
+*/</textarea>
 						</div>
 					</div>
 				</div>
-				<div class="page" id="page2">
+				<div class="page" id="1d">
 					<div class="page-content">
 						<div class="page-title">
-							<h2>Page 2 - Something Else</h2>
+							<h2>1D Arrays</h2>
 						</div>
-					</div>
-				</div>
-				<div class="page" id="page3">
-					<div class="page-content">
-						<div class="page-title">
-							<h2>Page 3 - Something Else Again</h2>
+						<div class="page-text">
+							some content
+						</div>
+						<div class="page-demo">
+<textarea id="editor-2">
+//this is an array initializer
+int[] myArray = new int[20];
+
+
+</textarea>
 						</div>
 					</div>
 				</div>
@@ -69,11 +148,17 @@
 							<h2>Page 4 - Some Stuff</h2>
 						</div>
 					</div>
+					<div class="page-text">
+							
+					</div>
 				</div>
 				<div class="page" id="page5">
 					<div class="page-content">
 						<div class="page-title">
 							<h2>Page 5 - Some More Stuff</h2>
+						</div>
+						<div class="page-text">
+							
 						</div>
 					</div>
 				</div>
@@ -108,5 +193,47 @@
 		    });
 	    });
 
+    </script>
+    <link rel="stylesheet" href="css/codemirror.css">
+    <link rel="stylesheet" href="css/cm-themes/twilight.css">
+    <script type="text/javascript" src="js/codemirror.js"></script>
+    <script src="js/cm-keymap/sublime.js"></script>
+    <script type="text/javascript" src="js/cm-addon/dialog/dialog.js"></script>
+    <link href="js/cm-addon/dialog/dialog.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/cm-addon/search/searchcursor.js"></script>
+    <script type="text/javascript" src="js/cm-addon/search/search.js"></script>
+    <script type="text/javascript" src="js/cm-addon/edit/closebrackets.js"></script>
+    <script type="text/javascript" src="js/cm-addon/comment/comment.js"></script>
+    <script type="text/javascript" src="js/cm-addon/fold/foldcode.js"></script>
+    <script type="text/javascript" src="js/cm-addon/fold/foldgutter.js"></script>
+    <script src="js/cm-addon/fold/brace-fold.js"></script>
+    <script src="js/cm-addon/fold/comment-fold.js"></script>
+    <link href="js/cm-addon/fold/foldgutter.css" rel="stylesheet" />
+
+    <script src="js/cm-mode/javascript/javascript.js"></script>
+    <script src="js/cm-mode/clike/clike.js"></script>
+    <script type="text/javascript">
+		editor = CodeMirror.fromTextArea($('#editor-1')[0], {
+			lineNumbers: true,
+			lineWrapping: false,
+			theme: 'twilight',
+			indentWithTabs: true,
+			readOnly: false,
+			keyMap: 'sublime',
+		    foldGutter: true,
+		    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+		});
+		editor.setOption("mode", "text/x-java");
+		editor2 = CodeMirror.fromTextArea($('#editor-2')[0], {
+			lineNumbers: true,
+			lineWrapping: false,
+			theme: 'twilight',
+			indentWithTabs: true,
+			readOnly: false,
+			keyMap: 'sublime',
+		    foldGutter: true,
+		    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+		});
+		editor2.setOption("mode", "text/x-java");
     </script>
 </html>

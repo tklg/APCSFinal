@@ -38,11 +38,13 @@ body {
     height: 100%;
     margin: 0;
 }
+ul {
+    list-style-type: none;
+}
 .nav {
     /*width: 100%;*/
     margin: 0;
     padding: 0;
-    list-style-type: none;
 }
 .nav li {
     /*padding: 5px 20px;*/
@@ -75,6 +77,10 @@ body {
 }
 .menuitem:hover:after {
     color: #aaa;
+}
+.menuitem-sub {
+    font-size: 70%;
+    text-indent: 20px;
 }
 a {
     color: #aaa;
@@ -141,4 +147,29 @@ a {
     border-top: 1px solid black;
 }
 .page-title h2 {
+}
+.page-text {
+    float: left;
+    /*padding: 20px 0;*/
+    width: 50%;
+}
+.page-text p {
+
+}
+.page-demo {
+    float: left;
+    padding: 0;
+    width: calc(50% - 21px);
+    border-left: 1px solid black;
+    margin-left: 20px;
+}
+code {
+    background: rgba(255,255,255,.1);
+    padding: 1px;
+}
+textarea {
+    font-family: monospace;
+    background: rgba(0,0,0,.4);
+    width: 100%;
+    margin: 0;
 }
