@@ -314,12 +314,13 @@ myArray[9] = 376;</textarea>
                 <div class="page" id="1dsorting">
 					<div class="page-content">
 						<div class="page-title">
-							<h2>Sorting arrays</h2>
+							<h2>Sorting Arras</h2>
 						</div>
 						<div class="page-text">
 							<p>
 								There are 2 ways to sort arrays - selection sorting and insertion sorting.
                             </p>
+                            <h3>Selection Sorting</h3>
                             <p>
                                 A selection sort algorithm assumes a sublist that covers the entire array.
                                 It passes through each of the indeces in the sublist, comparing each value to each other to find the smallest value.
@@ -349,14 +350,38 @@ myArray[9] = 376;</textarea>
                                 </tr>
                                 </table>                                
                             </p>
-                        <p>
-                            The last 2 lines do not change because the last 2 numbers in the list were already in order.
-                            However the algorith does not know that and continues until it has gone over each index.
-                        </p>
-                        <hr>
-                        <p>
-                            An insertion sort algorithm
-                        </p>
+	                        <p>
+	                            The last 2 lines do not change because the last 2 numbers in the list were already in order.
+	                            However the algorith does not know that and continues until it has gone over each index.
+	                        </p>
+	                        <hr>
+	                        <h3>Insertion Sorting</h3>
+	                        <p>
+	                            An insertion sort algorithm gives the same end result as the selection sort, but does so in a different way. It chooses the first element in the array and finds its place in the array, moving any elements that are in the way.<br>
+	                            It is less effcient than the selection sort in large lists, because it has to move more of the elements over.
+	                        </p>
+	                        <p>
+                                <table>
+                                <tr class="table-light">
+                                <td>Original</td><td>64</td><td>25</td><td>12</td><td>22</td><td>11</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>1<sup>st</sup> pass</td><td>64</td><td>25</td><td>12</td><td>22</td><td>11</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>2<sup>nd</sup> pass</td><td>25</td><td>64</td><td>12</td><td>22</td><td>11</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>3<sup>rd</sup> pass</td><td>12</td><td>25</td><td>64</td><td>22</td><td>11</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>4<sup>th</sup> pass</td><td>12</td><td>22</td><td>25</td><td>64</td><td>11</td>  
+                                </tr>
+                                <tr class="table-clear">
+                                <td>5<sup>th</sup> pass</td><td>11</td><td>12</td><td>22</td><td>25</td><td>64</td>  
+                                </tr>
+                                </table>                                
+                            </p>
 						</div>
 						<div class="page-demo">
 <textarea id="editor">
@@ -386,6 +411,13 @@ selectionSort(myArray);
 
 
 
+
+
+
+
+
+
+
 // an insertion sort algorithm
 public static void insertionSort(int[] numbers) {
 	for (int index = 1; index < numbers.length; index++) {
@@ -397,23 +429,63 @@ public static void insertionSort(int[] numbers) {
 		}
 		numbers[position] = key;
 	}
-}</textarea>
+}
+
+int[] myArray = {64, 25, 12, 22, 11};
+insertionSort(myArray);
+// myArray contains 11, 12, 22, 25, 64</textarea>
 						</div>
 					</div>
 				</div>
                 
                 <div class="page" id="1dsearching">
-					<div class="page-content">
+					<div class="page-content clearfix">
 						<div class="page-title">
-							<h2>Page title</h2>
+							<h2>Searching through arrays</h2>
 						</div>
-						<div class="page-text">
-							<p>
-								
-                            </p>
+						<div class="page-text clearfix">
+	                        <p>
+	                            Searching through arrays looking for a certain value can be done with loops. Either a while loop or a for loop will work.
+	                        </p>
 						</div>
 						<div class="page-demo">
 <textarea id="editor">
+// searching with a while loop
+// first set an index
+int i = 0;
+// then set a value to find
+int target = 3;
+// then set a thing to represent the index of the found value
+int found;
+// and here is our array
+int[] myArray = {1, 2, 3, 4, 5};
+// while there are still elements in the array, do stuff
+while(i < myArray.length) {
+	// if the value of the array index is the target
+	if (myArray[i] == target) {
+		// then record the index of the value
+		found = i;
+	}
+	// then increment the index and check again
+	i++;
+}
+System.out.println("Found index: " + found);
+
+// with a for loop:
+// the for loop puts everything in the while loop together into the loop parameters,
+// making it perfect for iterating through arrays.
+for (int i = 0; i < myArray.length; i++) {
+	if (myArray[i] == target) {
+		found = i;
+	}
+}
+System.out.println("Found index: " + found);
+
+// with a foreach loop:
+for (int i : myArray) {
+	
+}
+
 </textarea>
 						</div>
 					</div>

@@ -82,6 +82,10 @@ ul {
     font-size: 70%;
     text-indent: 20px;
 }
+.menuitem-sub-sub {
+    font-size: 70%;
+    text-indent: 40px;
+}
 a {
     color: #aaa;
     text-decoration: none;
@@ -141,6 +145,7 @@ a {
 .page-content {
     min-height: 100%;
     padding: 0 20px;
+    /*background: red;*/
 }
 .page-title {
     border-bottom: 1px solid black;
@@ -149,20 +154,22 @@ a {
 .page-title h2 {
 }
 .page-text {
-    float: left;
+    /*position: absolute;*/
     /*padding: 20px 0;*/
     width: 50%;
 }
-.page-text p {
-
+.page {
+    position: relative;
+    float: left;
 }
 .page-demo {
-    float: left;
+    /*float: left;*/
     padding: 0;
     width: calc(50% - 40px);
     margin-left: 20px;
     height: calc(100% - 70px);
     left: 50%;
+    top: 70px;
     position: absolute;
 }
 /*#editor {
@@ -201,4 +208,11 @@ table .table-light {
 hr {
     border: 1px solid transparent;
     border-top: 1px solid #000;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
