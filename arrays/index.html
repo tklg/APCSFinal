@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+index.html - APCSFinal Project
+(c) Theodore Kluge 2015
+http://kluge.ninja
+-->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -26,7 +31,7 @@
 		<section class="col col-5 col-locked">
 			<div class="title">
 				<div class="titleborder">
-					<h1><i class="fa fa-cube"></i> Chapter 6 - Arrays</h1>
+					<h1><i class="fa fa-code blue"></i> Chapter 6 - Arrays</h1>
 				</div>
 			</div>
 			<br>
@@ -40,8 +45,13 @@
 						<li><a href="#1dmodifying"><div class="menuitem menuitem-sub menuitem-sub-1">Modifying</div></a></li>
 						<li><a href="#1dsorting"><div class="menuitem menuitem-sub menuitem-sub-1">Sorting</div></a></li>
 						<li><a href="#1dsearching"><div class="menuitem menuitem-sub menuitem-sub-1">Searching</div></a></li>
-					<li><a href="#page4"><div class="menuitem">Nav 4</div></a></li>
-					<li><a href="#page5"><div class="menuitem">Nav 5</div></a></li>
+					<li><a href="#2d"><div class="menuitem">2D Arrays</div></a></li>
+						<li><a href="#2dcreating"><div class="menuitem menuitem-sub menuitem-sub-1">Creating</div></a></li>
+						<li><a href="#2daccessing"><div class="menuitem menuitem-sub menuitem-sub-1">Accessing</div></a></li>
+						<li><a href="#2dmodifying"><div class="menuitem menuitem-sub menuitem-sub-1">Modifying</div></a></li>
+						<li><a href="#2dsearching"><div class="menuitem menuitem-sub menuitem-sub-1">Searching</div></a></li>
+					<li><a href="#iterating"><div class="menuitem">Iterating Arrays</div></a></li>
+					<li><a href="#arraylists"><div class="menuitem">ArrayLists</div></a></li>
 				</ul>
 			</div>
 		</section>
@@ -115,7 +125,9 @@
 							<br><br><br>
 							<p>
 							...and a 3D array would be a list of lists of lists of items,<br>
-							and a 4D array would be a list of lists of lists of lists of items...
+							and a 4D array would be a list of lists of lists of lists of items...<br>
+							<span class="whisper">its like in php, where you can have variable variable variable variables<br>
+							variable variables are cool</span>
 							</p>
 						</div>
 						<div class="page-demo">
@@ -314,7 +326,7 @@ myArray[9] = 376;</textarea>
                 <div class="page" id="1dsorting">
 					<div class="page-content">
 						<div class="page-title">
-							<h2>Sorting Arras</h2>
+							<h2>Sorting Arrays</h2>
 						</div>
 						<div class="page-text">
 							<p>
@@ -447,6 +459,21 @@ insertionSort(myArray);
 	                        <p>
 	                            Searching through arrays looking for a certain value can be done with loops. Either a while loop or a for loop will work.
 	                        </p>
+	                        <br><br><br><br><hr>
+	                        <h3>while()</h3>
+	                        <p>
+	                       		In the while loop example, we set an int to act as the index of the array. Then, we make the loop continue while the index is less than the length of the array.<br>
+	                       		Each time the loop runs, it checks the value of the index against the target value and does something if they are equal. Then it increments the index by 1.
+	                        </p>
+	                        <br><br><br><hr>
+	                        <h3>for()</h3>
+	                        <p>
+	                        	In the for loop example, the index is created and incremented in the loop parameters along with the condition it needs to meet. The condition is still <code>index < myArray.length</code><br>
+	                        	The for loop puts everything in the while loop together into the loop parameters, making it perfect for iterating through arrays.
+	                        </p>
+	                        <p>
+	                        	A for loop can also be used to iterate through every index in the array. In this case, a foreach loop can be used.
+	                        </p>
 						</div>
 						<div class="page-demo">
 <textarea id="editor">
@@ -456,9 +483,11 @@ int i = 0;
 // then set a value to find
 int target = 3;
 // then set a thing to represent the index of the found value
-int found;
+// it is set to -1 so that the 'found' index will be -1 if the target does not exist
+int found = -1;
 // and here is our array
 int[] myArray = {1, 2, 3, 4, 5};
+
 // while there are still elements in the array, do stuff
 while(i < myArray.length) {
 	// if the value of the array index is the target
@@ -472,8 +501,6 @@ while(i < myArray.length) {
 System.out.println("Found index: " + found);
 
 // with a for loop:
-// the for loop puts everything in the while loop together into the loop parameters,
-// making it perfect for iterating through arrays.
 for (int i = 0; i < myArray.length; i++) {
 	if (myArray[i] == target) {
 		found = i;
@@ -481,15 +508,68 @@ for (int i = 0; i < myArray.length; i++) {
 }
 System.out.println("Found index: " + found);
 
-// with a foreach loop:
-for (int i : myArray) {
-	
-}
 
+
+
+// a foreach loop iterates through the specified array
+// for (type variable : array) { }
+for (int i : myArray) {
+	System.out.println("Value: " + i);
+}</textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="page" id="2d">
+					<div class="page-content clearfix">
+						<div class="page-title">
+							<h2>2D arrays</h2>
+						</div>
+						<div class="page-text clearfix">
+	                        <p>
+	                           To store a matrix/grid of items instead of a list, you can make a list list.
+	                        </p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+// list list lists
+// :D</textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="page" id="2dcreating">
+					<div class="page-content clearfix">
+						<div class="page-title">
+							<h2>Making a 2D array</h2>
+						</div>
+						<div class="page-text clearfix">
+	                        <p>
+	                           The array initializer for a 2D array is similar to that of a 1D array.<br>
+	                           1d init: <code>int[] myArray = new int[10]</code><br>
+	                           2d init: <code>int[][] myArray = new int[10][10]</code>
+	                        </p>
+	                        <p>
+	                        	A prefilled 2d array would be created in the same way as the 1d one, but it would be an array of arrays. It takes the form of a 1-dimensional array that, instead of having an int at each index, has another array at each index. Each index of the array inside the array would then contain an int.
+	                        </p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+// create an empty 10x5 array
+int my2dArray[][] = new int[10][5];
+
+//create a filled 4x4 array
+int myOther2dArray[][] = {
+	{1, 2, 3, 4}, // a 1d array
+	{5, 6, 7, 8}, // inside another 1d array
+	{9, 10, 11, 12}, // with 3 more 1d arrays with it
+	{13, 14, 15, 16}
+};
 </textarea>
 						</div>
 					</div>
 				</div>
+
 				<!-- paste next page here -->
 				</div>
 			</section>
@@ -504,13 +584,9 @@ for (int i : myArray) {
     <script src="js/cs.js"></script>
     <script type="text/javascript">
 
-	    $('body').scrollspy({
-	    	target: '#col-nav'
-	    });
-
 		$(document).keyup(function(e){
-			if(e.keyCode == 32) { ///space
-				
+			if(e.keyCode == 32) { //space
+				console.log("SPAAAAAAAAAAAACE");
 			}
 		});
 
@@ -520,6 +596,9 @@ for (int i : myArray) {
 		        mousescrollstep: 60,
 		        cursorborder: '0px',
 		        cursorcolor: "rgba(255,255,255,.4)"
+		    });
+		    $('body').scrollspy({
+		    	target: '#col-nav'
 		    });
 	    });
 
