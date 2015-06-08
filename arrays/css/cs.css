@@ -210,6 +210,13 @@ table .table-clear {
 table .table-light {
     background: rgba(255,255,255,.1);
 }
+table .table-active {
+    background: #5a9bda;
+    color: #333;
+}
+table .table-active-2 {
+    background: rgba(255,255,255,.5);
+}
 hr {
     border: 1px solid transparent;
     border-top: 1px solid #000;

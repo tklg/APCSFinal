@@ -50,7 +50,6 @@ http://kluge.ninja
 						<li><a href="#2daccessing"><div class="menuitem menuitem-sub menuitem-sub-1">Accessing</div></a></li>
 						<li><a href="#2dmodifying"><div class="menuitem menuitem-sub menuitem-sub-1">Modifying</div></a></li>
 						<li><a href="#2dsearching"><div class="menuitem menuitem-sub menuitem-sub-1">Searching</div></a></li>
-					<li><a href="#iterating"><div class="menuitem">Iterating Arrays</div></a></li>
 					<li><a href="#arraylists"><div class="menuitem">ArrayLists</div></a></li>
 				</ul>
 			</div>
@@ -85,11 +84,6 @@ http://kluge.ninja
 							<li>Accessing</li>
 							<li>Modifying</li>
 							<li>Searching</li>
-							</ul>
-						<li>Iterating through arrays</li>
-							<ul class="ul-sub">
-							<li>for</li>
-							<li>while</li>
 							</ul>
 						<li>Arraylists</li>
 							<ul class="ul-sub">
@@ -566,6 +560,229 @@ int myOther2dArray[][] = {
 	{13, 14, 15, 16}
 };
 </textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="page" id="2daccessing">
+					<div class="page-content clearfix">
+						<div class="page-title">
+							<h2>Accessing 2D Arrays</h2>
+						</div>
+						<div class="page-text clearfix">
+	                        <p>
+	                           Retrieving data from a 2d array is almost the same as from a 1d array: <code>int myInt = myArray[index1][index2];</code><br>
+	                        </p>
+	                        <p>
+	                        When <code>myArray[index1]</code> is called in a 2d array, it will return the array that was contained in that index. So, <code>myArray[index1][index2]</code> will return the value at the index of the inner array at the index of the outer array.
+	                        </p>
+	                        <p>
+	                        	The table below shows how the array is organized, with the array indexes being along the top and left sides, and the contents being in order of their arrangement.
+	                        </p>
+	                        
+                                <table>
+                                <tr class="table-light">
+                                <td>1<sup>st</sup> <i class="fa fa-arrow-right"></i><br>2<sup>nd</sup><i class="fa fa-arrow-down"></i></td><td>0</td>
+                                <td>1</td><td>2</td><td>3</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>1</td><td>5</td><td>6</td><td>7</td><td>8</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>2</td><td>9</td><td>10</td><td>11</td><td>12</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>3</td><td>13</td><td>14</td><td>15</td><td>16</td>
+                                </tr>
+                                </table>                                
+                            <p>
+                            	If <code>myArray[1]</code> is called, it will return this row in the array:
+                            </p>
+                            	<table>
+                                <tr class="table-light">
+                                <td>1<sup>st</sup> <i class="fa fa-arrow-right"></i><br>2<sup>nd</sup><i class="fa fa-arrow-down"></i></td><td>0</td>
+                                <td>1</td><td>2</td><td>3</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td> 
+                                </tr>
+                                <tr class="table-clear table-active">
+                                <td>1</td><td>5</td><td>6</td><td>7</td><td>8</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>2</td><td>9</td><td>10</td><td>11</td><td>12</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>3</td><td>13</td><td>14</td><td>15</td><td>16</td>
+                                </tr>
+                                </table>  
+                            <p>
+                            	If <code>myArray[1][2]</code> is called, it will return the value at that index of the array returned by <code>myArray[1]</code>.
+                            </p> 
+                            	<table>
+                                <tr class="table-light">
+                                <td>1<sup>st</sup> <i class="fa fa-arrow-right"></i><br>2<sup>nd</sup><i class="fa fa-arrow-down"></i></td><td>0</td>
+                                <td>1</td><td>2</td><td>3</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td> 
+                                </tr>
+                                <tr class="table-clear table-active">
+                                <td>1</td><td>5</td><td>6</td><td class="table-active-2">7</td><td>8</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>2</td><td>9</td><td>10</td><td>11</td><td>12</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>3</td><td>13</td><td>14</td><td>15</td><td>16</td>
+                                </tr>
+                                </table>  
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+//the 2d array
+int outerArray[][] = {
+	{1, 2, 3, 4}, // a 1d array
+	{5, 6, 7, 8}, // inside another 1d array
+	{9, 10, 11, 12},
+	{13, 14, 15, 16}
+};
+
+//this gets the first array inside the outer array
+int[] innerArray = outerArray[1];
+//innerArray is now {5, 6, 7, 8}
+
+//this gets the first value from the inner array
+int myInt = innerArray[2];
+//myInt is now 7
+
+//this can also be done in 1 step:
+myInt = outerArray[1][2];
+//this gets the first value from the first inner array in the outer array
+</textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="page" id="2dmodifying">
+					<div class="page-content">
+						<div class="page-title">
+							<h2>Modifying a 2-dimensional array</h2>
+						</div>
+						<div class="page-text">
+							<p>
+				                The contents of 2d arrays can be changed in the same way as a 1d array.
+                            </p>
+							<p>
+                                Just as<br>
+								<code language="java">myInt = myArray[index1][index2]</code><br>
+								retrieves the value stored at the specified indexes,<br><br>
+								<code language="java">myArray[index1][index2] = myInt</code><br>
+								will set the value stored at that index to whatever <i>myInt</i> was.
+							</p>
+							<p>
+								In a 2d array, you can also replace the inner arrays with <code>myArray[index] = some1dArray</code>
+							</p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+int myInt = 7;
+int my1dArray[] = {1, 4, 5, 8};
+int myArray[][] = {
+	{1, 2, 3, 4},
+	{5, 6, 7, 8},
+	{9, 10, 11, 12},
+	{13, 14, 15, 16}
+};
+
+myArray[3] = my1dArray;
+//myArray is now 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 4, 5, 8
+
+myArray[2][1] = myInt;
+//myArray is now 1, 2, 3, 4, 5, 6, 7, 8, 9, 7, 11, 12, 1, 4, 5, 8
+
+
+</textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="page" id="2dsearching">
+					<div class="page-content clearfix">
+						<div class="page-title">
+							<h2>Searching through 2D arrays</h2>
+						</div>
+						<div class="page-text clearfix">
+	                        <p>
+	                        	To search through a 2d array, you need to loop through the outer array, while stopping at every inner array and looping through them too.
+	                        </p>
+	                        <p>
+	                        	A foreach loop can also be used to iterate through every value in a 2d array.
+	                        </p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+// searching with a while loop
+// first set an index
+int i = 0;
+// then set a value to find
+int target = 3;
+// then set a thing to represent the index of the found value
+String found = "Not found";
+// and here is our array
+int myArray[][] = {
+	{1, 2, 3, 4},
+	{5, 6, 7, 8},
+	{9, 10, 11, 12},
+	{13, 14, 15, 16}
+};
+
+// with a for loop:
+//loop through the outer array
+for (int i = 0; i < myArray.length; i++) {
+	//loop through every array in the indexes of the outer array
+	for (int c = 0; c < myArray[0].length; c++) {
+		//if the value matches the thing we want to find, remember it
+		if (myArray[i][c] == target) {
+			found = i + ", " + c;
+		}
+	}
+}
+System.out.println("Found index: " + found);
+
+
+
+
+// a foreach loop iterates through the specified array
+// for (type variable : array) { }
+
+/loop through the 1d arrays in the outer array
+for (int[] outerArray : myArray) {
+	//loop through the ints in the inner array
+	for (int innerArray: outerArray) {
+		System.out.println("Value: " + innerArray);
+	}
+}</textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="page" id="arraylists">
+					<div class="page-content clearfix">
+						<div class="page-title">
+							<h2>ArrayLists</h2>
+						</div>
+						<div class="page-text clearfix">
+	                        <p>
+	                        	boop
+	                        </p>
+						</div>
+						<div class="page-demo">
+<textarea id="editor">
+//boop</textarea>
 						</div>
 					</div>
 				</div>
