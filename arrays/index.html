@@ -27,17 +27,18 @@ http://kluge.ninja
   </head>
 	<body>
 	<div class="content" id="top">
-		
+
+		<a class="btn-git" href="http://villa7.github.io" target="_blank"><i class="fa fa-github"></i></a>
+			
 		<section class="col col-5 col-locked">
 			<div class="title">
 				<div class="titleborder">
-					<h1><i class="fa fa-code blue"></i> Chapter 6 - Arrays</h1>
+					<h1><i class="fa fa-code blue"></i> Chapter 6</h1>
 				</div>
 			</div>
 			<br>
 			<div class="col-nav" id="col-nav">
 				<ul class="nav" id="nav">
-					<li><a href="#overview"><div class="menuitem">Overview</div></a></li>
 					<li><a href="#generaluse"><div class="menuitem">Arrays</div></a></li>
 					<li><a href="#1d"><div class="menuitem menuitem-1">1D Arrays</div></a></li>
 						<li><a href="#1dcreating"><div class="menuitem menuitem-sub menuitem-sub-1">Creating</div></a></li>
@@ -58,44 +59,6 @@ http://kluge.ninja
 
 		<section class="col col-5-4" id="col-content">
 			<section class="pages">
-				<div class="page" id="overview">
-					<div class="page-content">
-						<div class="page-title">
-							<h2>Overview</h2>
-						</div>
-						<ul>
-						<li>show examples of arrays</li>
-						<li>show examples of uses of arrays</li>
-						<li>explain all examples</li>
-						<li>have small inline demos alongside the examples</li>
-						</ul>
-						<ul>
-						<li>1-dimensional arrays</li>
-							<ul class="ul-sub">
-							<li>Creating</li>
-							<li>Accessing</li>
-							<li>Modifying</li>
-							<li>Sorting</li>
-							<li>Searching</li>
-							</ul>
-						<li>2-dimensional arrays</li>
-							<ul class="ul-sub">
-							<li>Creating</li>
-							<li>Accessing</li>
-							<li>Modifying</li>
-							<li>Searching</li>
-							</ul>
-						<li>Arraylists</li>
-							<ul class="ul-sub">
-							<li>Creating</li>
-							<li>Accessing</li>
-							<li>Modifying</li>
-							<li>Sorting</li>
-							<li>Searching</li>
-							</ul>
-						</ul>
-					</div>
-				</div>
 
 				<div class="page" id="generaluse">
 					<div class="page-content">
@@ -143,9 +106,6 @@ http://kluge.ninja
 						<div class="page-text">
 							<p>
 								A 1 dimensional array can be used to store a list of items or objects.
-							</p>
-							<p>
-								This section will go over how to create, access, modify, and sort 1-dimensional arrays.
 							</p>
 						</div>
 					</div>
@@ -521,7 +481,7 @@ for (int i : myArray) {
 						</div>
 						<div class="page-text clearfix">
 	                        <p>
-	                           To store a matrix/grid of items instead of a list, you can make a list list.
+	                           To store a matrix/grid of items instead of a list, you can make a list of lists.
 	                        </p>
 						</div>
 						<div class="page-demo">
@@ -620,7 +580,7 @@ int myOther2dArray[][] = {
                                 </tr>
                                 </table>  
                             <p>
-                            	If <code>myArray[1][2]</code> is called, it will return the value at that index of the array returned by <code>myArray[1]</code>.
+                            	If <code>myArray[1][2]</code> is called, it will return the value at the index of 2 in the array returned by <code>myArray[1]</code>.
                             </p> 
                             	<table>
                                 <tr class="table-light">
@@ -681,7 +641,7 @@ myInt = outerArray[1][2];
 								<code language="java">myInt = myArray[index1][index2]</code><br>
 								retrieves the value stored at the specified indexes,<br><br>
 								<code language="java">myArray[index1][index2] = myInt</code><br>
-								will set the value stored at that index to whatever <i>myInt</i> was.
+								will set the value stored at that set of indexes to whatever <i>myInt</i> was.
 							</p>
 							<p>
 								In a 2d array, you can also replace the inner arrays with <code>myArray[index] = some1dArray</code>
@@ -777,12 +737,93 @@ for (int[] outerArray : myArray) {
 						</div>
 						<div class="page-text clearfix">
 	                        <p>
-	                        	boop
+	                        	An ArrayList object acts as an array with a set of methods already built in.<br>
+	                        	A plain array can be created with a certain amount of spaces within, but cannot have more spaces added or removed once it has been created. It is also difficult to insert items into the middle of the array. An ArrayList fixes all of these problems.
 	                        </p>
-						</div>
+	                        <p>
+	                        	When an ArrayList is created, it is empty. They are objects, so they must be instantiated.<br>
+	                        	<code>ArrayList&lt;type&gt; myArrayList = new ArrayList&lt;type&gt;(/*param1*/);</code><br>
+	                        	where <i>type</i> is the type of object you want to store in the ArrayList, and <i>param1</i> is an optional parameter specifying how long you want the ArrayList to start out as. Arraylists can only store Objects, so any primitive types (int, double, boolean) cannot be directly stored in an arraylist. These primitive types can be wrapped in their respective object classes (Integer, Double, Boolean) to be stored.
+	                        </p>
+	                        <p>
+	                        	Once an arraylist is created, it functions as an expandable array. The arraylist object has many helpful methods that make working with them easier.
+	                        </p>
+	                        <p>
+	                        	<table class="table-smalltext table-alignleft">
+                                <tr class="table-light">
+                                <td>Name</td><td>Use</td> 
+                                </tr>
+                                <tr class="table-clear">
+                                <td>get(int index)</td><td>returns the item stored at that index in the arraylist</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>add(Object o)</td><td>Appends the object to the end of the arraylist</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>add(int index, Object o)</td><td>Adds the object to the arraylist at the specified index</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>set(int index, Object o)</td><td>Replaces the content of the index with the object</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>remove(int index)</td><td>Removes the object at the index</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>remove(Object o)</td><td>Removes the first instance of the object in the arraylist</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>clear()</td><td>Empties the arraylist</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>contains(Object o)</td><td>Returns true if the arraylist contains the object</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>indexOf(Object o)</td><td>Returns the index the object is at</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>size()</td><td>Returns the length of the arraylist</td>
+                                </tr>
+                                <tr class="table-clear">
+                                <td>toArray()</td><td>Returns a normal array containing all elements in the arraylist</td>
+                                </tr>
+                                </table>  
+	                        </p>
+	                        <p>
+
+	                        </p>
+						</div>	
 						<div class="page-demo">
 <textarea id="editor">
-//boop</textarea>
+//create an arraylist of Strings
+ArrayList<String> myList = new ArrayList<String>();
+
+//add some stuff to it
+myList.add("Hello");
+myList.add("World");
+
+//test some methods
+System.out.println(myList.get(0) + ", " + myList.get(1) + "!");
+//Hello, World!
+
+//try looping through
+for (int i = 0; i < myList.size(); i++) {
+	myList.set(i, "Halp");
+}
+
+System.out.println(myList.get(0) + ", " + myList.get(1) + "!");
+
+
+//create an arraylist of Integers
+ArrayList<Integer> intList = new ArrayList<Integer>();
+
+//add some stuff to it too
+intList.add(new Integer(1)); //use the Integer object to wrap ints
+intList.add(new Integer(7));
+
+System.out.println(myList.get(0) + " + " + myList.get(1));
+//1 + 7
+
+</textarea>
 						</div>
 					</div>
 				</div>

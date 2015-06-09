@@ -212,10 +212,19 @@ table .table-light {
 }
 table .table-active {
     background: #5a9bda;
-    color: #333;
+    color: #292929;
 }
 table .table-active-2 {
     background: rgba(255,255,255,.5);
+}
+table.table-smalltext {
+    font-size: 80%;
+}
+table.table-smalltext td {
+    padding: 10px 0;
+}
+table.table-alignleft td {
+    text-align: left;
 }
 hr {
     border: 1px solid transparent;
@@ -230,4 +239,27 @@ hr {
 }
 h1, h2, h3, h4 {
     text-transform: capitalize;
+}
+i {
+    color: #fff;
+}
+.git-container {
+    
+}
+.btn-git {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    height: 40px;
+    width: 40px;
+}
+.btn-git i {
+    font-size: 40px;
+    color: rgba(255,255,255,.5);
+}
+.btn-git:hover {
+    transform: rotate 30deg;
+}
+.btn-git:hover i {
+    color: #5a9bda;
 }
