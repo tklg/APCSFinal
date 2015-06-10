@@ -55,16 +55,21 @@ ul {
     -webkit-transition: all .15s ease-in-out;
           transition: all .15s ease-in-out;
     cursor: pointer;
+    border-bottom: 1px solid transparent;
 }
 .nav li.active {
-    background: rgba(255,255,255,.05);
+    background: #26508b;
+    border-bottom: 1px solid #5a9bda;
 }
 .nav li:hover {
-    background: rgba(255,255,255,.1);
+    background: rgba(255,255,255,.05);
 }
 .nav li:active {
+    background: rgba(255,255,255,.1);
     /*background: rgba(255,255,255,.2);*/
-    background: #26508b;
+}
+.nav li.active:hover {
+    background: #3573C6;
 }
 .menuitem {
     padding: 5px 20px;
@@ -77,6 +82,9 @@ ul {
     color: transparent;
     -webkit-transition: all .15s ease-in-out;
           transition: all .15s ease-in-out;
+}
+.nav li.active .menuitem:after {
+    color: #6595D6;
 }
 .menuitem:hover:after {
     color: #aaa;
@@ -243,23 +251,28 @@ h1, h2, h3, h4 {
 i {
     color: #fff;
 }
-.git-container {
-    
-}
-.btn-git {
+#git-link {
+    color: #444;
+    font-size: 60px;
+    height: 60px;
+    width: auto;
     position: fixed;
-    bottom: 10px;
     left: 10px;
-    height: 40px;
-    width: 40px;
+    bottom: 7px;
+    z-index: 100;
+    -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -ms-transition: all .3s ease-in-out;
+         -o-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
 }
-.btn-git i {
-    font-size: 40px;
-    color: rgba(255,255,255,.5);
-}
-.btn-git:hover {
-    transform: rotate 30deg;
-}
-.btn-git:hover i {
+
+#git-link:hover {
     color: #5a9bda;
+    cursor: pointer;
+    -ms-transform:rotate(-15deg);
+    -webkit-transform:rotate(-15deg);
+    -moz-transform:rotate(-15deg);
+    -o-transform:rotate(-15deg);
+    transform:rotate(-15deg);
 }
