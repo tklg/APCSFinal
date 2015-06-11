@@ -109,7 +109,7 @@ a {
 @media (min-width: 0px) and (max-width: 768px) {
     .col-5 {
         width: 30%;
-        border-right: 1px solid black; 
+        border-right: 1px solid rgba(0,0,0,1);; 
     }
     .col-5-4 {
         width: calc(70% - 1px);
@@ -118,7 +118,7 @@ a {
 @media (min-width: 768px) and (max-width: 992px) {
     .col-5 {
         width: 25%;
-        border-right: 1px solid black; 
+        border-right: 1px solid rgba(0,0,0,1);; 
     }
     .col-5-4 {
         width: calc(75% - 1px);
@@ -127,7 +127,7 @@ a {
 @media (min-width: 992px) {
     .col-5 {
         width: 20%;
-        border-right: 1px solid black; 
+        border-right: 1px solid rgba(0,0,0,1);; 
     }
     .col-5-4 {
         width: calc(80% - 1px);
@@ -138,12 +138,24 @@ a {
     padding-top: 0;
 }
 .title {
-    padding: 0 20px;
+    padding: 0;
+    position: absolute;
+    height: 69px;
+    top: 0;
+    width: 100%;
+    background: rgba(38,80,139, .3);
 }
 .title h1 {
+    padding: 0 20px;
 }
 .titleborder {
-    border-bottom: 1px solid black;
+    /*border-bottom: 1px solid rgba(0,0,0 ,1);;*/
+}
+.col-nav {
+    border-top: 1px solid rgba(0,0,0 ,1);
+    position: absolute;
+    top: 69px;
+    width: 100%;
 }
 .pages {
     height: 100%;
@@ -153,21 +165,31 @@ a {
     min-height: 100%;
     width: 100%;
 }
-.page-content {
+/*.page-content {
     min-height: 100%;
     padding: 0 20px;
-    /*background: red;*/
+}*/
+.page-content {
+
 }
 .page-title {
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 1px solid rgba(0,0,0,1);;
+    border-top: 1px solid rgba(0,0,0,1);;
+    /*background: #26508b;*/
+    background: rgba(38,80,139, .3);
+
+    padding: 0 20px;
 }
+/*.page-title:first-of-type {
+    border-top: none;
+}*/
 .page-title h2 {
 }
 .page-text {
-    /*position: absolute;*/
-    /*padding: 20px 0;*/
     width: 50%;
+
+    margin-left: 20px;
+    padding-bottom: 
 }
 .page {
     position: relative;
@@ -179,7 +201,7 @@ a {
     width: calc(50% - 40px);
     margin-left: 20px;
     height: calc(100% - 70px);
-    left: 50%;
+    left: calc(20px + 50%);
     top: 70px;
     position: absolute;
 }
@@ -210,7 +232,7 @@ table {
 table td {
     width: auto;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,1);;
 }
 table .table-clear {
     background: transparent;

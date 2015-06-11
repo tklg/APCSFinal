@@ -8,7 +8,7 @@ $('a[href*=#]:not([href=#])').click(function(e) {
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top
+                scrollTop: target.offset().top + 1
             }, 1000, 'easeInOutCubic');
             setTimeout(function() {
 	           window.location.hash = target.selector;
